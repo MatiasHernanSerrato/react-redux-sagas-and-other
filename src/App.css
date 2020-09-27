@@ -3,14 +3,14 @@
   background-color: #282c34;
     min-height: 100vh;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     font-size: calc(10px + 2vmin);
     color: white;
 }
 
 .pro-sidebar {
   height: 100vh;
-  
+
 }
 
 .App-logo {
