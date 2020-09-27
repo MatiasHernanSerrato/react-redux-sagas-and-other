@@ -1,6 +1,6 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). 
 
-This was created in order to keep all the libraries I've been using in one place to show a several little apps I'm making.
+This was created in order to keep all the libraries I've been using in one place to show a several little apps I'm making. aslo I was explaining my frind how to do a quick react app and how to add more tools
 
 ## Available Scripts
 
