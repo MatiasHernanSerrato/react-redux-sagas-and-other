@@ -2,6 +2,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 This was created in order to keep all the libraries I've been using in one place to show a several little apps I'm making. aslo I was explaining my frind how to do a quick react app and how to add more tools
 
+##
+Redux and React-redux was Included for future projects
+For the sidebar I use [React Pro Sidebar](https://github.com/azouaoui-med/react-pro-sidebar#react-pro-sidebar)
+For the redirect to make it a spa I'm using [React-Router](https://reactrouter.com/web/guides/quick-start)
 ## Available Scripts
 
 In the project directory, you can run:
