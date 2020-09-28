@@ -10,6 +10,7 @@ import {
 import SumAndSubtraction from './Apps/SumAndSubstraction';
 import './App.css';
 import Home from './Apps/Home';
+import ToDoList from './Apps/ToDoList';
 
 const AppRouter = () => {
   return (
@@ -20,8 +21,8 @@ const AppRouter = () => {
             <Menu iconShape="square">
               <MenuItem>Home <Link to="/home" /></MenuItem>
               <SubMenu title="My mini apps">
-                <MenuItem>Sub and Substraction  <Link to="/subandsubsapp" /></MenuItem>
-                <MenuItem>App in progress</MenuItem>
+                <MenuItem>Sub and Substraction<Link to="/subandsubsapp" /></MenuItem>
+                <MenuItem>ToDoList <Link to="/ToDoList" /></MenuItem>
               </SubMenu>
               <MenuItem>About me</MenuItem>
             </Menu>
@@ -33,8 +34,8 @@ const AppRouter = () => {
             <Route path="/home">
               <Home></Home>
             </Route>
-            <Route path="/dashboard">
-              {/* <Dashboard /> */}
+            <Route path="/ToDoList">
+              <ToDoList></ToDoList>
             </Route>
           </Switch>
         </Router>
