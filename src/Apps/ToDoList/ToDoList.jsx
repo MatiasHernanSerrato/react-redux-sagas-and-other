@@ -10,9 +10,39 @@ class ToDoList extends React.Component {
       tasks: ['como sea', 'whatever', 'angeles', 'mira', 'como sea', 'whatever', 'angeles', 'mira',],
     };
   }
+  // MOUNTING
+
   UNSAFE_componentWillMount() {
     console.log('UNSAFE_componentWillMount has been called');
   }
+
+  UNSAFE_componentWillReceiveProps() {
+    console.log('UNSAFE_componentWillReceiveProps has been called');
+  }
+
+  static getDerivedStateFromProps(props, state) {
+    // replace UNSAFE_componentWillReceiveProps
+    console.log('getDerivedStateFromProps has been called', props, state)
+  }
+
+  componentDidMount() {
+    console.log('component Mounted')
+  }
+
+  // UPDATING
+
+  // shouldComponentUpdate(){}
+
+  componentDidUpdate() {
+    console.log('Component updated');
+  }
+
+  // UNMOUNTING
+
+  componentWillUnmount() {
+    console.log('Component will unmount has been called')
+  }
+
 
   render() {
     return (
