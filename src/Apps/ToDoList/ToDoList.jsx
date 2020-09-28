@@ -1,13 +1,22 @@
 import React from 'react';
 
 import './ToDoList.css';
+import CustomButton from '../../Components/shared/CustomButton';
 
 class ToDoList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      todo: '',
-      tasks: ['como sea', 'whatever', 'angeles', 'mira', 'como sea', 'whatever', 'angeles', 'mira',],
+      input: '',
+      tasks: [
+        {
+          checked: false,
+          text: 'Eat whatever'
+        },
+        {
+          checked: true,
+          text: 'Do a TODOLIST'
+        }],
     };
   }
   // MOUNTING
@@ -43,6 +52,15 @@ class ToDoList extends React.Component {
     console.log('Component will unmount has been called')
   }
 
+  handleInput = input => {
+    this.setState({ input });
+  };
+
+  handleOnClick = () => {
+    const newTask = { checked: false, text: this.state.input }
+    this.state.tasks.push(newTask)
+    this.setState({ input: "" });
+  }
 
   render() {
     return (
@@ -52,10 +70,12 @@ class ToDoList extends React.Component {
         <p>also this Component has been created as a Class Component which extends from React</p>
         <div className='todoListViewer'>
           <div className='taskAdder'>
-            <p>What do you have to do? </p><input type="text" />
+            <p>What do you have to do? </p>
+            <input onChange={event => this.handleInput(event.target.value)}
+              value={this.state.input} /> <CustomButton onClickFn={this.handleOnClick} text='Add to the list' />
           </div>
           <div className='taskViewer'>
-            {this.state.tasks.map((task, key) => <div key={key.toString()} className='taskContainer'>{task}</div>)}
+            {this.state.tasks.map((task, key) => <div key={key.toString()} className='taskContainer'><input type="checkbox" name={key.toString()} checked={task.checked} /><label for={key.toString()}>{task.text}</label></div>)}
           </div>
         </div>
       </div>

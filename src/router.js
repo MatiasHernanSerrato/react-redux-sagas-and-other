@@ -19,7 +19,7 @@ const AppRouter = () => {
         <Router>
           <ProSidebar>
             <Menu iconShape="square">
-              <MenuItem>Home <Link to="/home" /></MenuItem>
+              <MenuItem>Home <Link to="/" /></MenuItem>
               <SubMenu title="My mini apps">
                 <MenuItem>Sub and Substraction<Link to="/subandsubsapp" /></MenuItem>
                 <MenuItem>ToDoList <Link to="/ToDoList" /></MenuItem>
@@ -31,7 +31,7 @@ const AppRouter = () => {
             <Route exact path="/subandsubsapp">
               <SumAndSubtraction />
             </Route>
-            <Route path="/home">
+            <Route exact path="/">
               <Home></Home>
             </Route>
             <Route path="/ToDoList">
