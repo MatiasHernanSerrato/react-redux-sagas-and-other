@@ -11,6 +11,7 @@ import SumAndSubtraction from './Apps/SumAndSubstraction';
 import './App.css';
 import Home from './Apps/Home';
 import ToDoList from './Apps/ToDoList';
+import MiniML from './Apps/MiniML';
 
 const AppRouter = () => {
   return (
@@ -23,6 +24,7 @@ const AppRouter = () => {
               <SubMenu title="My mini apps">
                 <MenuItem>Sub and Substraction<Link to="/subandsubsapp" /></MenuItem>
                 <MenuItem>ToDoList <Link to="/ToDoList" /></MenuItem>
+                <MenuItem>Mini ML <Link to="/MiniML" /></MenuItem>
               </SubMenu>
               <MenuItem>About me</MenuItem>
             </Menu>
@@ -36,6 +38,9 @@ const AppRouter = () => {
             </Route>
             <Route path="/ToDoList">
               <ToDoList></ToDoList>
+            </Route>
+            <Route path="/MiniML">
+              <MiniML />
             </Route>
           </Switch>
         </Router>

@@ -5,7 +5,7 @@ import './SumAndSubstraction.css';
 import CustomButton from '../../Components/shared/CustomButton';
 
 const SumAndSubstraction = () => {
-  const [count, setCounter] = useState(0)
+  const [count, setCounter] = useState(0);
   //the last button was added in order to see how defaults props works
   return (
     <div className={'container'}>
