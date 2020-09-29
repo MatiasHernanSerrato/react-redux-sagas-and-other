@@ -12,11 +12,7 @@ class ToDoList extends React.Component {
         {
           checked: false,
           text: 'Eat whatever'
-        },
-        {
-          checked: true,
-          text: 'Do a TODOLIST'
-        }],
+        },],
     };
   }
   // MOUNTING
@@ -35,6 +31,8 @@ class ToDoList extends React.Component {
   }
 
   componentDidMount() {
+    const tasksCache = JSON.parse(localStorage.getItem("tasksCache"));
+    this.setState({ tasks: tasksCache })
     console.log('component Mounted')
   }
 
@@ -60,6 +58,7 @@ class ToDoList extends React.Component {
     const newTask = { checked: false, text: this.state.input }
     this.state.tasks.push(newTask)
     this.setState({ input: "" });
+    localStorage.setItem("tasksCache", JSON.stringify(this.state.tasks));
   }
 
   render() {
@@ -75,7 +74,7 @@ class ToDoList extends React.Component {
               value={this.state.input} /> <CustomButton onClickFn={this.handleOnClick} text='Add to the list' />
           </div>
           <div className='taskViewer'>
-            {this.state.tasks.map((task, key) => <div key={key.toString()} className='taskContainer'><input type="checkbox" name={key.toString()} checked={task.checked} /><label for={key.toString()}>{task.text}</label></div>)}
+            {this.state.tasks.map((task, key) => <div key={key.toString()} className='taskContainer'><input onChange={event => console.log(event.target.value)} type="checkbox" name={key.toString()} checked={task.checked} /><label for={key.toString()}>{task.text}</label></div>)}
           </div>
         </div>
       </div>
