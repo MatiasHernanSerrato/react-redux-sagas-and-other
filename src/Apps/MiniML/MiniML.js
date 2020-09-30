@@ -3,18 +3,25 @@ import './MiniML.css';
 
 const MiniML = () => {
   const [textSearch, setTextSearch] = useState(null);
+  const [results, setResults] = useState([]);
   const fetchData = params => {
-    fetch(`https://api.mercadolibre.com/sites/MLA/search?q=:${encodeURIComponent(params)}`).then(response => response.json()).then(console.log);
+    fetch(`https://api.mercadolibre.com/sites/MLA/search?q=:${encodeURIComponent(params)}`).then(response => response.json()).then(v => setResults(v.results));
   }
+
+  const setValueforSearch = text => setTextSearch(text);
 
   return (
     <div className='mttContainer'>
       <div className='headerMTT'>
         <div className='headerSearch'>
-          <input onClick={e => console.log('el event', e)} type="text" placeholder='Buscar productos, marcas y más…'></input> <button onClick={() => fetchData('banana')}>SEARCH</button></div>
+          <input onChange={event => setValueforSearch(event.target.value)} type="text" placeholder='Buscar productos, marcas y más…'></input> <button onClick={() => fetchData(textSearch)}>SEARCH</button></div>
       </div>
       <div className='mttViewer'>
-        <p>whatever</p>
+        <ol>
+          {
+            results.map(result => <li>{result.title}</li>)
+          }
+        </ol>
       </div>
     </div>
   )
