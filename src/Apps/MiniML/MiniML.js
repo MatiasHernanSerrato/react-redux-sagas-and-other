@@ -5,7 +5,8 @@ const MiniML = () => {
   const [textSearch, setTextSearch] = useState(null);
   const [results, setResults] = useState([]);
   const fetchData = params => {
-    fetch(`https://api.mercadolibre.com/sites/MLA/search?q=:${encodeURIComponent(params)}`).then(response => response.json()).then(v => setResults(v.results));
+    // fetch(`https://api.mercadolibre.com/sites/MLA/search?q=:${encodeURIComponent(params)}`).then(response => response.json()).then(v => setResults(v.results));
+    fetch(`http://localhost:3030/api/items?query=:${encodeURIComponent(params)}`).then(response => response.json()).then(v => setResults(v.results));
   }
 
   const setValueforSearch = text => setTextSearch(text);
@@ -19,7 +20,9 @@ const MiniML = () => {
       <div className='mttViewer'>
         <ol>
           {
-            results.map(result => <li>{result.title}</li>)
+            results.map(result => <li key={result.id}>
+                <a target="_blank" href={`http://localhost:3030/api/items/${result.id}`}>{result.title}</a>
+            </li>)
           }
         </ol>
       </div>
