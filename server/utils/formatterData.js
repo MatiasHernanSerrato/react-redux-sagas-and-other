@@ -39,7 +39,7 @@ Formatter.formatListItems = (responseItems) => {
     const reducedData = responseItems.results.reduce((accum, currentItem) => {
         const {category_id} = currentItem;
         accum.categories[category_id] = true;
-        accum.items.push(Formatter.formatDetailsAndDescription(currentItem, false));
+        accum.items.push(Formatter.formatDetailsAndDescription(currentItem, false).item);
         return accum;
     }, {items: [], categories: {}});
 
