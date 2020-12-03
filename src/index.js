@@ -1,21 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux'
-import { createStore } from 'redux'
+import { Provider } from 'react-redux';
 import 'react-pro-sidebar/dist/css/styles.css';
 import './index.css';
 import AppRouter from './router';
 import * as serviceWorker from './serviceWorker';
-import rootReducer from './reducers';
-
-const store = createStore(rootReducer)
+import store from './main/store';
 
 ReactDOM.render(
+  <React.StrictMode>
+
   <Provider store={store}>
-    <React.StrictMode>
       <AppRouter />
-    </React.StrictMode>
-  </Provider>,
+  </Provider>
+  </React.StrictMode>,
+
   document.getElementById('root')
 );
 
