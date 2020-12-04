@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { ItemSearch } from "./ItemSearch/ItemSearch";
 import "./MiniML.css";
 
 const MiniML = () => {
@@ -13,8 +14,13 @@ const MiniML = () => {
       .then((v) => setResults(v.items));
   };
 
-  console.log(results);
   const setValueforSearch = (text) => setTextSearch(text);
+
+  const onSearchKeyPress = async (event) => {
+    if (event.key === "Enter") {
+      await fetchData(textSearch);
+    }
+  };
 
   return (
     <div className="mttContainer">
@@ -24,23 +30,31 @@ const MiniML = () => {
             onChange={(event) => setValueforSearch(event.target.value)}
             type="text"
             placeholder="Buscar productos, marcas y más…"
-          ></input>{" "}
+            onKeyPress={onSearchKeyPress}
+          />
           <button onClick={() => fetchData(textSearch)}>SEARCH</button>
         </div>
       </div>
       <div className="mttViewer">
-        <ol>
-          {results.map((result) => (
-            <li key={result.id}>
-              <a
-                target="_blank"
-                href={`http://localhost:3030/api/items/${result.id}`}
-              >
-                {result.title}
-              </a>
-            </li>
-          ))}
-        </ol>
+        <div className="ScrollableContent">
+          {results && !!results.length && (
+            <ul className="ListContainerItems">
+              {results.map((result) => (
+                <li key={result.id}>
+                  <ItemSearch
+                    title={result.title}
+                    image={result.picture}
+                    price={result.price}
+                    freeShipping={result.free_shipping}
+                    onClick={() =>
+                      (window.location = `http://localhost:3030/api/items/${result.id}`)
+                    }
+                  />
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
       </div>
     </div>
   );

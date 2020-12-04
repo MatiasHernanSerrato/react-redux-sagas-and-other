@@ -1,0 +1,50 @@
+.ItemSearch {
+  display: grid;
+  grid-template-areas:
+    "image price"
+    "image title"
+    "image shipping";
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #eee;
+  grid-template-columns: 160px 1fr;
+  grid-column-gap: 1rem;
+  grid-template-rows: min-content max-content 1fr;
+}
+
+.ItemSearch_Image {
+  grid-area: image;
+  border-radius: 4px;
+  width: 160px;
+  height: 160px;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+.ItemSearch_Price {
+  grid-area: price;
+  text-align: left;
+}
+
+.ItemSearch_Title {
+  cursor: pointer;
+  grid-area: title;
+  font-size: 16px;
+  justify-self: flex-start;
+  font-weight: 300;
+  margin-top: 14px;
+}
+
+.ItemSearch_FeePrice {
+  font-size: 12px;
+}
+
+.ItemSearch_ShippingInfo {
+  grid-area: shipping;
+  margin-top: 12px;
+}
+
+.ItemSearch_ShippingInfo {
+  color: #27ae60;
+  text-align: left;
+  font-size: 14px;
+}
