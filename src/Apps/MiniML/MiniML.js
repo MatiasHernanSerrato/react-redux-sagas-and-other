@@ -17,7 +17,7 @@ const MiniML = () => {
   const setValueforSearch = (text) => setTextSearch(text);
 
   const onSearchKeyPress = async (event) => {
-    if (event.key === "Enter") {
+    if (event.key === "Enter" && textSearch?.length) {
       await fetchData(textSearch);
     }
   };

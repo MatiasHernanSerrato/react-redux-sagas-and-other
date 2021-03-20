@@ -49,11 +49,15 @@
 .ListContainerItems {
   background: #fff;
   list-style: none;
-  margin: 2rem auto;
-  max-width: 900px;
+  margin: 1rem 0;
+  min-width: 900px;
   padding: 0;
   width: 100%;
   border-radius: 4px;
+}
+
+.ListContainerItems ul {
+  margin: 1rem 0;
 }
 
 .ScrollableContent {
